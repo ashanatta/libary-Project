@@ -12,3 +12,5 @@ Route::get('/', function () {
 Route::resource('books', BookController::class);
 Route::resource('authors', AuthorController::class);
 Route::resource('rentals', RentalController::class);
+
+Route::patch('rentals/{rental}/return', [RentalController::class, 'returnBook'])->name('rentals.return');
