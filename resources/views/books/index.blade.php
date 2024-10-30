@@ -4,36 +4,38 @@
 @section('title', 'Books')
 
 @section('content')
-    <h2>Books List</h2>
-    <a href="{{ route('books.create') }}">Add New Book</a>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Publication Year</th>
-                <th>Availability</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($books as $book)
+    <div class="container mt-5">
+        <h2 class="mb-4">Books List</h2>
+        <a href="{{ route('books.create') }}" class="btn btn-primary mb-3">Add New Book</a>
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
                 <tr>
-                    <td>{{ $book->title }}</td>
-                    <td>{{ $book->author->name }}</td>
-                    <td>{{ $book->publication_year ?? 'N/A' }}</td>
-                    <td>{{ $book->is_available ? 'Available' : 'Currently Rented' }}</td>
-                    <td>
-                        <a href="{{ route('books.show', $book->id) }}">View</a> |
-                        <a href="{{ route('books.edit', $book->id) }}">Edit</a> |
-                        <form action="{{ route('books.destroy', $book->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Delete</button>
-                        </form>
-                    </td>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publication Year</th>
+                    <th>Availability</th>
+                    <th>Actions</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach ($books as $book)
+                    <tr>
+                        <td>{{ $book->title }}</td>
+                        <td>{{ $book->author->name }}</td>
+                        <td>{{ $book->publication_year ?? 'N/A' }}</td>
+                        <td>{{ $book->is_available ? 'Available' : 'Currently Rented' }}</td>
+                        <td>
+                            <a href="{{ route('books.show', $book->id) }}" class="btn btn-info btn-sm">View</a>
+                            <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route('books.destroy', $book->id) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection
