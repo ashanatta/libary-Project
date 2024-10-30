@@ -5,7 +5,6 @@
 
 @section('content')
     <div class="container mt-5">
-        <h2 class="mb-4">Books List</h2>
         <a href="{{ route('books.create') }}" class="btn btn-primary mb-3">Add New Book</a>
         <table class="table table-bordered table-striped">
             <thead class="table-dark">

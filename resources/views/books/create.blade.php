@@ -5,7 +5,6 @@
 
 @section('content')
     <div class="container mt-5">
-        <h2 class="mb-4">Add New Book</h2>
         <form action="{{ route('books.store') }}" method="POST">
             @csrf
             <div class="mb-3">
@@ -26,5 +25,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
+        <a href="{{ route('authors.index') }}" class="btn btn-secondary mt-3">Back to Authors List</a>
+
     </div>
 @endsection

@@ -4,7 +4,6 @@
 
 @section('content')
     <div class="container mt-5">
-        <h2 class="mb-4">All Rentals</h2>
         <a href="{{ route('rentals.create') }}" class="btn btn-primary mb-3">Rent a Book</a>
         <table class="table table-bordered table-striped">
             <thead class="table-dark">

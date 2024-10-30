@@ -4,7 +4,6 @@
 
 @section('content')
     <div class="container mt-5">
-        <h2 class="mb-4">Rent a Book</h2>
         <form action="{{ route('rentals.store') }}" method="POST">
             @csrf
             <div class="mb-3">
